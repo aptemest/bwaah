@@ -1,9 +1,71 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>"boxit.co"</title>
-    <link rel="icon" type="image/x-icon" href="gay.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Protected Vault</title>
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: #00ffcc;
+            font-family: monospace;
+            text-align: center;
+            margin-top: 20vh;
+            overflow: hidden;
+        }
+
+        /* The Huge CSS Banner with a 1-second transition */
+        #sec-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(10, 0, 0, 0.98);
+            color: #ff0033;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            z-index: 999999;
+            transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+            transform: translateY(-100%); /* Starts hidden off-screen */
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        #sec-banner.active {
+            transform: translateY(0); /* Covers entire screen in 1 second */
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Jumpscare Flash Overlay */
+        #jumpscare-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vw;
+            background: #fff;
+            z-index: 1000000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            color: #000;
+            font-size: 5rem;
+            font-weight: bold;
+        }
+
+        .protected-box {
+            border: 2px dashed #00ffcc;
+            padding: 40px;
+            display: inline-block;
+            background: #1a1a1a;
+        }
+    </style>
 </head>
 <body>
 
@@ -89,7 +151,5 @@
             }
         }, 1000);
     </script>
-</body>
-</html>
 </body>
 </html>
