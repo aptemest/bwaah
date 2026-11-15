@@ -1,21 +1,42 @@
+<!DOCTYPE html>
 <html lang="ru">
 <head>
- 	<meta charset="UTF-8">
- 	<title>"Why am I gay?"</title>
-	<link rel="icon" type="image/x-icon" href="ASSETS/gay.ico">
+    <meta charset="UTF-8">
+    <title>"Why am I gay?"</title>
+    <link rel="icon" type="image/x-icon" href="https://imworking.randomeguynew.workers.dev/?file=ASSETS/gay.ico">
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <style>
+        .video-container {
+            position: relative;
+            display: inline-block;
+        }
+        .clickable {
+            position: absolute;
+            top: 146px; 
+            left: 50px; 
+            width: 125px; 
+            height: 130px;
+            z-index: 10;
+        }
+    </style>
 </head>
-
-<a href="aboutboxit.html">
-<video width="400" controls>
-  <source src="boxity.mp4" type="video/mp4">
-  Your browser does not support HTML video.
-</video>
-<div class="clickable" style="top: 146px; left: 50px; width: 125px; height: 130px;"></div>
-</a>
-
 <body>
-
-<p>1STPAGE</p>
+    <div class="video-container">
+        <video id="videoElement" width="400" controls></video>
+        <a href="aboutboxit.html" class="clickable"></a>
+    </div>
+    <p>1STPAGE</p>
+    <script>
+        var video = document.getElementById('videoElement');
+        var videoSrc = 'https://imworking.randomeguynew.workers.dev/?file=ASSETS/video/playlist.m3u8';
+        if (Hls.isSupported()) {
+            var hls = new Hls();
+            hls.loadSource(videoSrc);
+            hls.attachMedia(video);
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            video.src = videoSrc;
+        }
+    </script>
 
 </body>
 </html>
